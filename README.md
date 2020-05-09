@@ -1,6 +1,10 @@
 # VanishV2
 
-## Parzival JBC update
+## Parzival JBC update 1.1.0
+
+1. Added /tell and /msg to blocked commands when trying to reach vanished players
+
+## Parzival JBC update 1.0.0
 
 1. Players without vanish.use permission can no longer find out if a vanished player is still online by doing /w \<name\> \<msg\>, now shows 'That player cannot be found' (default ig message if player is not online)
 2. Players without vanish.use permission will see 'Unknown command. Try /help for a list of commands' upon typing /vanish

@@ -23,7 +23,8 @@ class EventListener implements Listener {
 	public function onChat(PlayerCommandPreprocessEvent $event) {
 		$player = $event->getPlayer();
 		$command = explode(" ", strtolower($event->getMessage()));
-		if($command[0] === "/w") {
+		$blockedCommands = array("/w", "/tell", "/msg");
+		if(in_array($command[0], $blockedCommands)) {
 			if($player->hasPermission("vanish.use")) {
 				return;
 			} else if((isset(VanishV2::$vanish[array_search($command[1], VanishV2::$vanish)])) and (isset($command[2]))) {
