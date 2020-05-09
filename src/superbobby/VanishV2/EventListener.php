@@ -4,6 +4,8 @@ namespace superbobby\VanishV2;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
+use pocketmine\utils\TextFormat;
+use pocketmine\event\player\PlayerCommandPreprocessEvent;
 
 use function array_search;
 use function in_array;
@@ -17,4 +19,24 @@ class EventListener implements Listener {
             unset(VanishV2::$vanish[array_search($name, VanishV2::$vanish)]);
         }
     }
+	
+	public function onChat(PlayerCommandPreprocessEvent $event) {
+		$player = $event->getPlayer();
+		$command = explode(" ", strtolower($event->getMessage()));
+		if($command[0] === "/w") {
+			if($player->hasPermission("vanish.use")) {
+				return;
+			} else if((isset(VanishV2::$vanish[array_search($command[1], VanishV2::$vanish)])) and (isset($command[2]))) {
+				$event->setCancelled(true);
+				$player->sendMessage(TextFormat::WHITE . "That player cannot be found");
+			} else {
+				return;
+			}
+		} else if($command[0] === "/vanish") {
+			if(!$player->hasPermission("vanish.use")) {
+				$event->setCancelled(true);
+				$player->sendMessage(TextFormat::RED . "Unknown command. Try /help for a list of commands");
+			}
+		}
+	}
 }

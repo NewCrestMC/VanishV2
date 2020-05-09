@@ -1,5 +1,12 @@
 # VanishV2
 
+## Parzival JBC update
+
+1. Players without vanish.use permission can no longer find out if a vanished player is still online by doing /w \<name\> \<msg\>, now shows 'That player cannot be found' (default ig message if player is not online)
+2. Players without vanish.use permission will see 'Unknown command. Try /help for a list of commands' upon typing /vanish
+
+## original info
+
 Unlike the others vanish plugins VanishV2 can hide the items you're holding and your armor you have on you,
 
 VanishV2 can remove you from the online players list to be incognito when you are checking for cheaters.
