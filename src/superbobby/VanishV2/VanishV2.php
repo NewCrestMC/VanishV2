@@ -18,7 +18,7 @@ use function in_array;
 use function strtolower;
 
 class VanishV2 extends PluginBase {
-    public const PREFIX = C::BLUE . "VanishV2 " . C::DARK_GRAY . "» ". C::RESET;
+    public const PREFIX = C::BLUE . "Vanish " . C::DARK_GRAY . "» ". C::RESET;
 
     public static $vanish = [];
 
@@ -46,12 +46,11 @@ class VanishV2 extends PluginBase {
 		case "vanish":
 		case "v":
 	        if(!$sender instanceof Player){
-                $sender->sendMessage(self::PREFIX . C::DARK_RED . "Use this command InGame.");
+                $sender->sendMessage(C::DARK_RED . "Use this command InGame.");
                 return false;
 	        }
 
-	        if(!$sender->hasPermission("vanish.use")){
-		        $sender->sendMessage(self::PREFIX . C::DARK_RED . "You do not have permission to use this command");
+	        if(!$sender->hasPermission("vanish.use")){ # Handling moved to EventListener.php
                 return false;
 	        }
 
