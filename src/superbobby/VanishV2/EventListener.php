@@ -27,7 +27,7 @@ class EventListener implements Listener {
 		if(in_array($command[0], $blockedCommands)) {
 			if($player->hasPermission("vanish.use")) {
 				return;
-			} else if((isset(VanishV2::$vanish[array_search($command[1], VanishV2::$vanish)])) and (isset($command[2]))) {
+			} else if((in_array($command[1], VanishV2::$vanish)) and (isset($command[2]))) {
 				$event->setCancelled(true);
 				$player->sendMessage(TextFormat::WHITE . "That player cannot be found");
 			} else {

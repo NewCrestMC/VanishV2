@@ -1,5 +1,9 @@
 # VanishV2
 
+## Parzival JBC update 1.2.0
+
+1. Non-staff can now whisper
+
 ## Parzival JBC update 1.1.0
 
 1. Added /tell and /msg to blocked commands when trying to reach vanished players
